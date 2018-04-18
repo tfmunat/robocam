@@ -6,11 +6,12 @@
 
 #include "visual.h"
 #include "track.h"
+#include "xiApiPlusOcv.hpp"
 
 /* enum for available cameras */
 enum CAMERAS {
     // builtin camera (video0) is default (in a Linux environment)
-    builtin,
+    webcam,
     // change in main if camera is changed
     roboeye,
     usbcam,
@@ -37,10 +38,10 @@ int main(int argc, char **argv){
     
     // choose camera
     //CAMERAS cam = CAMERAS::ps3eye;
-    CAMERAS cam = CAMERAS::builtin;
+    //CAMERAS cam = CAMERAS::roboeye;
     
     // create visual for camera
-    Visual vis(cam, color);
+    Visual vis("test.avi", color);
     
     // start camera
     run_camera(vis);

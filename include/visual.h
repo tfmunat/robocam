@@ -15,15 +15,14 @@
 class Visual{
     protected:
         // member variables
-        cv::VideoCapture cap; 
+        cv::VideoCapture cap;
         std::string color;
-        int camSource;
+        const std::string& camSource;
         int width = 480;
         int height = 640;
-
     public:
         // constructor
-        Visual(int input, std::string objectColor)
+        Visual(const std::string& input, std::string objectColor)
             :color(objectColor), camSource(input){}
 
         // check if we succeeded
@@ -34,7 +33,7 @@ class Visual{
         std::string getColor() { return color; }
         int getWidth() { return width; }
         int getHeight() { return height; }
-        int getCamSource() { return camSource; }
+        const std::string& getCamSource() { return camSource; }
 
         // destructor
         ~Visual() { cap.release(); }
